@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 11:36:26 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:33:35 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 20:56:56 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ void	list_merge_sorted(t_list *dst, t_list *src, t_cmpf *cmp_fun,
 			src->next->prev = ptr->prev;
 			ptr->prev = src->next;
 			src->next = src->next->next;
+			src->next->prev = src;
 			ptr->prev->next = ptr;
 		}
-		ptr = ptr->next;
+		else
+			ptr = ptr->next;
 	}
 	dst->data += (uintptr_t)src->data;
 	src->data = NULL;

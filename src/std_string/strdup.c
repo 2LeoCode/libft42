@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 00:06:48 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/13 11:03:51 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 18:41:59 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strdup(const char *s)
 
 	new_s = ft_malloc(sizeof(char) * (len + 1));
 	if (new_s)
-		return (NULL);
-	return (ft_strcpy(new_s, s));
+		ft_memcpy(new_s, s, len + 1);
+	return (new_s);
 }

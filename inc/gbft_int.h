@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 12:27:07 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:39:48 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 21:48:27 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@
 # include "gbft.h"
 # include "listft.h"
 
+# include <stdbool.h>
+
 typedef int	t_gbop();
 
-int	gb_main(void *data, t_freef *free_fun, t_gbop *op);
-int	gbop_clear(t_list *gb, void *data, t_freef *free_fun);
-int	gbop_push(t_list *gb, void *data, t_freef *free_fun);
-int	gbop_pop(t_list *gb, void *data, t_freef *free_fun);
+typedef struct s_chunk {
+	bool	is_list;
+	void	*ptr;
+	t_freef	*free_fun;
+}	t_chunk;
+
+int	gb_main(void *data, t_freef *free_fun, t_gbop *op, bool is_list);
+int	gbop_clear(t_list *gb, void *data, t_freef *free_fun, bool is_list);
+int	gbop_push(t_list *gb, void *data, t_freef *free_fun, bool is_list);
+int	gbop_pop(t_list *gb, void *data, t_freef *free_fun, bool dummy);
+
+void	gb_list_destroy(t_list *lst, t_freef *free_fun);
 
 #endif

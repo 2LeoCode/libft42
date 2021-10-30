@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:37:13 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/27 16:58:54 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 20:56:59 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <criterion/criterion.h>
 #include "inc/libft.h"
 #include "inc/libft_types.h"
+#include "inc/stringft.h"
 
 Test(std_stdlib, atoi) {
 	char	*str[] = {
@@ -134,4 +135,27 @@ Test(std_stdlib, strtoul) {
 	unsigned long exp = strtoul("   +3901238", NULL, 0),
 		got = ft_strtoul("    +3901238", NULL, 0);
 	cr_expect(exp == got, "For: \"%s\", endptr: NULL, base: 0(10)\nExpected %zu, got %zu (if same it crashes)\n", "   +3901238", exp, got);
+}
+
+Test(ft_string, string_new) {
+	t_string	*s1 = string_new(42);
+	t_string	*s2 = string_new(0);
+	t_string	*s3 = string_new(1);
+
+	cr_expect(s1 && s2 && s3, "Expected string_new not to return NULL");
+	ft_free(s1);
+	ft_free(s2);
+	ft_free(s3);
+}
+
+#define size(x) (x + 32)
+
+Test(ft_string, string_from) {
+	t_string	*s1 = string_from("Hello");
+	t_string	*s2 = string_from("world");
+	t_string	*s3 = string_from("");
+
+	cr_expect(!ft_strcmp(string_beg(s1), "Hello") && ft_blocksize(s1) == size(6), "\n%s\n%zu\n", string_beg(s1), ft_blocksize(s1));
+	cr_expect(!ft_strcmp(string_beg(s2), "world") && ft_blocksize(s2) == size(6), "\n%s\n%zu\n", string_beg(s2), ft_blocksize(s2));
+	cr_expect(!ft_strcmp(string_beg(s3), "") && ft_blocksize(s3) == size(1), "\n%s\n%zu\n", string_beg(s3), ft_blocksize(s3));
 }

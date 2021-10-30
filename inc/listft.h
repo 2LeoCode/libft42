@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:33:31 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:33:14 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 20:32:31 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ struct s_node {
 	t_node		*prev;
 	t_node		*next;
 };
-
-typedef char	t_size_check[1 - 2 * (sizeof(t_list) != sizeof(t_node))];
 
 void	list_init(t_list *lst);
 void	list_destroy(t_list *lst, t_freef free_fun);

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stringft_int.h                                     :+:      :+:    :+:   */
+/*   string_flof.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 14:18:20 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/28 21:10:09 by Leo Suardi       ###   ########.fr       */
+/*   Created: 2021/10/13 19:05:19 by Leo Suardi        #+#    #+#             */
+/*   Updated: 2021/10/29 18:15:06 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRINGFT_INT_H
-# define STRINGFT_INT_H
+#include <stringft_int.h>
+#include <libft.h>
 
-# include <stddef.h>
+char	*string_flof(const t_string *s, const char *charset)
+{
+	const size_t	cst_len = ft_strlen(charset);
+	const char		*ptr = s->end;
 
-typedef struct s_string {
-	char	*begin;
-	char	*end;
-	size_t	length;
-	size_t	capacity;
-	char	data[];
-}	t_string;
-
-#endif
+	if (!*charset)
+		return (s->end);
+	while (--ptr >= s->begin)
+	{
+		if (ft_memchr(charset, *ptr, cst_len))
+			return ((char *)ptr);
+	}
+	return (NULL);
+}

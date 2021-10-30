@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 00:31:28 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:42:55 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/28 22:03:14 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_realloc(void *ptr, size_t size)
 
 	ret = NULL;
 	old_block = ptr - sizeof(t_block);
-	new_block = ft_malloc(sizeof(t_block) + size);
+	new_block = malloc(sizeof(t_block) + size);
 	if (new_block)
 	{
 		new_block->size = size;

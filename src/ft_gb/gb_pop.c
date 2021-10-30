@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:30:49 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 15:31:35 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 21:37:27 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	gb_pop(void)
 {
-	gb_main(NULL, NULL, gbop_pop);
+	gb_main(NULL, NULL, gbop_pop, false);
 }

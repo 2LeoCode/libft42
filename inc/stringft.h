@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 11:18:24 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/14 10:50:31 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/28 21:38:47 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_string	*string_dup(const t_string *s);
 
 size_t		string_len(const t_string *s);
 size_t		string_cap(const t_string *s);
+char		*string_data(t_string *s);
 bool		string_empty(const t_string *s);
 char		string_at(const t_string *s, unsigned int index);
 char		string_front(const t_string *s, unsigned int index);
@@ -38,18 +39,19 @@ short		string_app(t_string **s, const char *src);
 short		string_assign(t_string **s, const char *src);
 short		string_insert(t_string **s, const char *src,
 				unsigned int index);
-short		string_replace(t_string **s, const char *src, unsigned int index,
+short		string_rpl(t_string **s, const char *src, unsigned int index,
 				unsigned int n);
 void		string_erase(t_string *s, unsigned int index, unsigned int n);
+short		string_rpl_pat(t_string **s, const char *before,
+				const char *after);
 void		string_clear(t_string *s);
-
 
 char		*string_find(const t_string *s, const char *sequence);
 char		*string_rfind(const t_string *s, const char *sequence);
-char		*string_find_first_of(const t_string *s, const char *pattern);
-char		*string_find_last_of(const t_string *s, const char *pattern);
-char		*string_find_first_nof(const t_string *s, const char *pattern);
-char		*string_find_last_nof(const t_string *s, const char *pattern);
+char		*string_ffof(const t_string *s, const char *pattern);
+char		*string_flof(const t_string *s, const char *pattern);
+char		*string_ffnof(const t_string *s, const char *pattern);
+char		*string_flnof(const t_string *s, const char *pattern);
 t_string	*string_subst(const t_string *s, size_t start, size_t len);
 
 char		*string_beg(t_string *s);

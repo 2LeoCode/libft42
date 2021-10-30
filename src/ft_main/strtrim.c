@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:56:24 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/13 11:03:51 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 18:37:56 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 char	*ft_strtrim(const char *s, const char *set)
 {
-	char	*ptr;
-	size_t	len;
+	const size_t	set_len = ft_strlen(set);
+	char			*ptr;
+	size_t			len;
 
-	while (*s && ft_strchr(set, *s))
+	while (*s && ft_memchr(set, *s, set_len))
 		++s;
 	len = ft_strlen(s);
-	while (len && ft_strchr(set, s[len - 1]))
+	while (len && ft_memchr(set, s[len - 1], set_len))
 		--len;
 	ptr = ft_malloc(sizeof(char) * (len + 1));
 	if (ptr)

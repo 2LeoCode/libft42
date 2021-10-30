@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_replace.c                                   :+:      :+:    :+:   */
+/*   string_rpl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:17:06 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/13 18:49:20 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 15:53:09 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stringft.h>
 #include <libft.h>
 
-short	string_replace(t_string **s, const char *src, unsigned int index,
+short	string_rpl(t_string **s, const char *src, unsigned int index,
 			unsigned int n)
 {
 	const size_t	src_len = ft_strlen(src);
@@ -22,13 +22,13 @@ short	string_replace(t_string **s, const char *src, unsigned int index,
 
 	if (index > (*s)->length)
 		index = (*s)->length;
-	if ((size_t)(index - n) > (*s)->length)
+	if ((size_t)(index + n) > (*s)->length)
 		n = (*s)->length - index;
 	new_len = (*s)->length - n + src_len;
 	if (new_len > (*s)->capacity
 		&& string_realloc(s, new_len) == STRING_FAILURE)
 		return (STRING_FAILURE);
-	ft_memmove((*s)->data + index + src_len - n, (*s)->data + index,
+	ft_memmove((*s)->data + index + src_len, (*s)->data + index + n,
 			(*s)->length - index - n);
 	ft_memcpy((*s)->data + index, src, src_len);
 	(*s)->length = new_len;

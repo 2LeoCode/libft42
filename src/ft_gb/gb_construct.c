@@ -6,11 +6,12 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:39:30 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:38:59 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/29 21:37:47 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <gbft_int.h>
+#include <libft.h>
 
 static void	*alloc(t_allocf *alloc_fun, void *alloc_param)
 {

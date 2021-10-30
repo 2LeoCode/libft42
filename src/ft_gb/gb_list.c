@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stringft_int.h                                     :+:      :+:    :+:   */
+/*   gb_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 14:18:20 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/28 21:10:09 by Leo Suardi       ###   ########.fr       */
+/*   Created: 2021/10/29 21:38:10 by Leo Suardi        #+#    #+#             */
+/*   Updated: 2021/10/29 22:00:40 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRINGFT_INT_H
-# define STRINGFT_INT_H
+#include <gbft_int.h>
+#include <listft.h>
 
-# include <stddef.h>
+void	gb_list_destroy(t_list *lst, t_freef *free_fun)
+{
+	lst_destroy(lst, free_fun);
+	ft_free(lst);
+}
 
-typedef struct s_string {
-	char	*begin;
-	char	*end;
-	size_t	length;
-	size_t	capacity;
-	char	data[];
-}	t_string;
+t_list	*gb_list_new(t_list *addr, t_freef *free_fun)
+{
+	t_list	*ptr;
 
-#endif
+	ptr = ft_malloc(sizeof(t_list));
+	if (!ptr)
+	{
+		gb_clear();
+		return (NULL);
+	}
+	list_init(ptr);
+	if (gb_main(ptr, free_fun, gbop_push, true) == GB_FAILURE)
+		return (NULL);
+	return (ptr);
+}

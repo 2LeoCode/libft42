@@ -1,26 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stringft_int.h                                     :+:      :+:    :+:   */
+/*   list_new.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 14:18:20 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/28 21:10:09 by Leo Suardi       ###   ########.fr       */
+/*   Created: 2021/10/29 21:44:43 by Leo Suardi        #+#    #+#             */
+/*   Updated: 2021/10/29 21:44:50 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRINGFT_INT_H
-# define STRINGFT_INT_H
+#include <listft.h>
 
-# include <stddef.h>
-
-typedef struct s_string {
-	char	*begin;
-	char	*end;
-	size_t	length;
-	size_t	capacity;
-	char	data[];
-}	t_string;
-
-#endif

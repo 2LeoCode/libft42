@@ -6,7 +6,7 @@
 /*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 00:43:27 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 17:42:46 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/10/28 22:03:08 by Leo Suardi       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_reallocarray(void *ptr, size_t nmemb, size_t size)
 	t_block			*new_block;
 
 	old_block = ptr - sizeof(t_block);
-	new_block = ft_malloc(sizeof(t_block) + total_size);
+	new_block = malloc(sizeof(t_block) + total_size);
 	if (!new_block)
 		return (NULL);
 	if (size > old_block->size)
