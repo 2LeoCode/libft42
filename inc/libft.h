@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
+/*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 13:11:17 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/19 18:36:48 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/11/09 17:26:20 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void				*ft_reallocarray(void *ptr, size_t nmemb, size_t size);
 /*
 **	<libft.h>
 */
+long long			ft_abs(long long n);
 void				ft_kek(void);
 size_t				ft_strclen(const char *s, int stop);
 char				*ft_stpccpy(char *dst, const char *src, int stop);

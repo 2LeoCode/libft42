@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gb_clear.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
+/*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:31:41 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/29 21:37:37 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/11/09 16:08:24 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	gb_clear(void)
 {
-	gb_main(NULL, NULL, gbop_clear, false);
+	gb_main(NULL, NULL, (t_gbop *)gbop_clear, false);
 }

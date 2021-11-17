@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gb_pop.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
+/*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:30:49 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/29 21:37:27 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/11/09 16:08:15 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	gb_pop(void)
 {
-	gb_main(NULL, NULL, gbop_pop, false);
+	gb_main(NULL, NULL, (t_gbop *)gbop_pop, false);
 }

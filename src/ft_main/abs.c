@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gb_push.c                                          :+:      :+:    :+:   */
+/*   abs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 15:24:15 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/11/09 16:08:02 by crochu           ###   ########.fr       */
+/*   Created: 2021/11/09 17:24:37 by crochu            #+#    #+#             */
+/*   Updated: 2021/11/09 17:26:22 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <gbft_int.h>
-
-short	gb_push(void *data, t_freef *free_fun)
+long long	ft_abs(long long n)
 {
-	return (gb_main(data, free_fun, (t_gbop *)gbop_push, false));
+	if (n < 0)
+		return (-n);
+	return (n);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gb_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
+/*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:19:35 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/29 21:47:45 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/11/12 00:02:55 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	gbop_clear(t_list *gb, void *data, t_freef *free_fun, bool is_list)
 
 int	gbop_push(t_list *gb, void *data, t_freef *free_fun, bool is_list)
 {
-	t_pair	*elem;
+	t_chunk	*elem;
 
 	elem = make_chunk(data, free_fun, is_list);
 	if (elem && !list_push_front(gb, elem))
@@ -69,7 +69,7 @@ int	gbop_push(t_list *gb, void *data, t_freef *free_fun, bool is_list)
 
 int	gbop_pop(t_list *gb, void *data, t_freef *free_fun, bool dummy)
 {
-	t_pair	*ptr;
+	t_chunk	*ptr;
 
 	(void)data;
 	(void)free_fun;
@@ -77,8 +77,8 @@ int	gbop_pop(t_list *gb, void *data, t_freef *free_fun, bool dummy)
 	ptr = list_pop_front(gb);
 	if (ptr)
 	{
-		if (ptr->second)
-			((t_freef *)ptr->second)(ptr->first);
+		if (ptr->free_fun)
+			ptr->free_fun(ptr->ptr);
 		ft_free(ptr);
 	}
 	return (GB_SUCCESS);

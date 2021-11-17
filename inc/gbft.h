@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gbft.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo Suardi <lsuardi@student.42.fr>         +#+  +:+       +#+        */
+/*   By: crochu <crochu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 20:41:08 by Leo Suardi        #+#    #+#             */
-/*   Updated: 2021/10/29 21:58:50 by Leo Suardi       ###   ########.fr       */
+/*   Updated: 2021/11/10 01:50:42 by crochu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define GB_SUCCESS 0
 
 typedef void	*t_allocf();
-typedef void	t_freef();
 
 short		gb_push(void *data, t_freef *free_fun);
 short		gb_alloc(void *addr, size_t size);
@@ -39,7 +38,7 @@ short		gb_alloc_trgb(t_trgb **addr, t_trgb data);
 short		gb_alloc_bgrt(t_bgrt **addr, t_bgrt data);
 short		gb_alloc_flex(t_flex **addr, size_t size);
 
-t_list		*gb_list_new(t_list *addr, t_freef *free_fun);
+t_list		*gb_list_new(t_freef *free_fun);
 t_string	*gb_string_new(size_t cap);
 t_string	*gb_string_from(const char *s);
 t_string	*gb_string_dup(const t_string *s);
